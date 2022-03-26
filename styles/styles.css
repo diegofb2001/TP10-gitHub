@@ -39,6 +39,17 @@ html{
      color: rgb(238, 236, 96)
 }
 
+.hb-fill-middle2-bg {
+      background: transparent;
+      color: #b37f11;
+      transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+
 /* --------------------------- asignación de áreas del grid ESENCIALES PARA EL "grid-template-areas" -------------------------- */
 
 .header{
@@ -47,7 +58,6 @@ html{
 }
 .nav{
      grid-area: nav;
-     background-color: rgba(0,0,0,0.7);
 }
 .sideBar{
      grid-area: sidebar;
@@ -115,6 +125,21 @@ body{
      display: flex;
      flex-direction: column;
      align-items: center;
+     /* Aquí está el gradiente pedido en  el TP, aplicado al header. Generado con https://www.joshwcomeau.com/gradient-generator/ */
+    background-image: linear-gradient(
+          315deg,
+          hsl(36deg 4% 49%) 0%,
+          hsl(37deg 4% 39%) 2%,
+          hsl(40deg 4% 29%) 7%,
+          hsl(30deg 4% 20%) 14%,
+          hsl(30deg 4% 10%) 29%,
+          hsl(0deg 0% 0%) 53%,
+          hsl(43deg 86% 9%) 70%,
+          hsl(43deg 84% 17%) 82%,
+          hsl(43deg 85% 26%) 89%,
+          hsl(43deg 84% 35%) 95%,
+          hsl(43deg 85% 44%) 100%
+     );
 }
 
 nav ul{
@@ -141,6 +166,12 @@ aside{
      flex-direction: column;
      justify-content: center;
      align-content: space-around;
+}
+
+
+
+h1 {
+  font-family:monospace;
 }
 
 aside p{
@@ -293,15 +324,17 @@ figure {
           align-items: center;
      }
 
-     nav ul li a:hover{
+     /* nav ul li a:hover{ innecesario con la última implementación!!
           color: rgb(238, 236, 96);
           text-decoration: underline rgb(238, 236, 96);
           transition: 1s;
-     }
+     } */
 /* ------------------------- modificaciones del nav ------------------------- */
      nav ul{
           margin-right: 1.5rem;
      }
+
+
 /* ------------------------- modificaciones del main ------------------------ */
 
      main, p{
@@ -317,6 +350,75 @@ figure {
           width: 50%;
           margin: 3rem auto;
      }
+
+     /* ------------------------------ estilos boton ----------------------------- */
+
+     .hbtn {
+      position: relative;
+      box-sizing: border-box;
+      display: inline-block;
+      overflow: hidden;
+      padding: 8px 20px;
+      margin: 0px 3px 6px;
+      text-align: center;
+      /* border: 2px solid rgb(255, 255, 255); */
+      text-decoration: none;
+      color: #ad6d06;
+      white-space: nowrap;
+      z-index: 0;
+}
+
+.hbtn i {
+      padding-right: 8px;
+}
+
+.hb-fill-middle2-bg::before {
+      position: absolute;
+      content: "";
+      background: #b37f11;
+      transition-duration: 0.3s;
+      z-index: -1;
+      inset: 0px 0px auto auto;
+      width: 0px;
+      height: 100%;
+      opacity: 1;
+}
+
+.hb-fill-middle2-bg:hover::before {
+      width: 50%;
+      height: 100%;
+      opacity: 1;
+}
+
+.hb-fill-middle2-bg {
+      background: transparent;
+      /* color: rgb(255, 255, 255); */
+      transition: all 0.3s ease 0s;
+}
+
+.hb-fill-middle2-bg:hover {
+      color: rgb(0, 0, 0);
+      background: rgb(255, 255, 255);
+      transition: all 0.3s ease 0s;
+}
+
+.hb-fill-middle2-bg::after {
+      position: absolute;
+      content: "";
+      background: rgb(255, 255, 255);
+      transition-duration: 0.3s;
+      z-index: -1;
+      inset: 0px auto auto 0px;
+      width: 0px;
+      height: 100%;
+      opacity: 1;
+}
+
+.hb-fill-middle2-bg:hover::after {
+      width: 50%;
+}
+
+
 /* ----------------------- modificaciones del section (no visible en Móvil) ----------------------- */
      .section{
           display: flex;
@@ -360,5 +462,5 @@ figure {
           height: 180px;
      }
 
-     
+
 }
