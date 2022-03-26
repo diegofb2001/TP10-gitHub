@@ -1,0 +1,364 @@
+/* --------------------------- ESTILOS UNIVERSALES -------------------------- */
+html{
+     font-size: 62.5%;
+     height: 100%; /* asiga el 100% desponible de altura, IMPORTANTE PARA EL min-height de la clase .container*/
+
+}
+
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     list-style: none;
+     text-decoration: none;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/* ---------------------------- ESTILOS GENERALES --------------------------- */
+/* -------------------------------------------------------------------------- */
+/* A medida que se va haciendo más complejo, el documento necesita muchos atributos, entre elos, hay muchos que se repiten constantemente
+     y traté de separarlos para su implementación más simple posible, usando clases para aplicar */
+.fontExo700{
+     font-family: 'Exo 2', sans-serif;
+}
+.fontRoboto300{
+     font-family: 'Roboto', sans-serif;
+}
+.centrar_texto{
+     text-align: center;
+}
+.font_size_1-5rem{
+     font-size: 1.5rem;
+}
+.fuenteColor_Institucional{
+     color: #ad6d06;
+}
+.colorAmarillo{
+     color: rgb(238, 236, 96)
+}
+
+/* --------------------------- asignación de áreas del grid ESENCIALES PARA EL "grid-template-areas" -------------------------- */
+
+.header{
+     grid-area: header;
+     background-color: rgba(0,0,0,0.7);
+}
+.nav{
+     grid-area: nav;
+     background-color: rgba(0,0,0,0.7);
+}
+.sideBar{
+     grid-area: sidebar;
+     background-color: rgba(0,0,0,0.7);
+}
+.main{
+     grid-area: main;
+     background-color: rgb(0,0,0,0.7);
+}
+.section{
+     grid-area: section;
+     background-color: rgba(0,0,0,0.7);
+}
+.sectionMarcas{
+     grid-area: sectionMarcas;
+     display: none;
+     background-color: rgba(0,0,0,0.7);
+}
+.footer{
+     grid-area: footer;
+     background-color: rgba(0,0,0,0.7);
+     border-top: 1px #000 solid;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ---------------------------- ESTILOS  EN MÓVIL ---------------------------- */
+/* -------------------------------------------------------------------------- */
+
+
+/* ------------------------- estilos del body ------------------------- */
+body{
+     min-height: 100%;    /*tamaño altura mínima del  documento, está vincukado con la altura del html expresado arriba*/
+     display: grid;
+     overflow-y: auto;
+
+     grid-template-rows: 16rem auto auto auto auto;
+     grid-template-areas:  /* asignación de áreas MOBILE FIRST de 1 columna*/
+     "header"
+     "sidebar"
+     "main"
+     "section"
+     "footer";
+
+     /* --------------------- Atributos de la imagen de fondo --------------------- */
+     background-image: url(../assets/herramientas-700.jpg);
+     background-size: cover; /* La img cubre todo lo posible del documento*/
+     background-repeat: repeat-y; /*Repetición de la imagen en el eje Y*/
+     background-position: center; /*Centrado de la imagen de fondo*/
+
+
+     /* ------- Sombra alrededor del contenido para aplicar sombra de caja, generado con https://cssgenerator.org ------- */
+     box-shadow: 1px 2px 9px 18px rgba(0,0,0,0.5);
+     -webkit-box-shadow: 1px 2px 9px 18px rgba(0,0,0,0.5);
+     -moz-box-shadow: 1px 2px 9px 18px rgba(0,0,0,0.5);
+}
+/*Usé esta línea para visualizar las áreas y trabajar más fácilmente*/
+     body > *{
+     border: 1px solid black;
+}
+
+
+/* ----------------------------- estilos del header/nav ---------------------------- */
+
+.header{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+nav ul{
+     display: flex;
+}
+
+nav ul li a{
+     overflow: hidden;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     padding: 10px 5px;
+     font-size: 1.5rem;
+     color: #fff;
+
+}
+.logo img{
+     margin: 0 auto;
+     width: auto;
+}
+
+/* ---------------------------- estilos del aside --------------------------- */
+
+aside{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-content: space-around;
+}
+
+aside p{
+     color: rgb(238, 236, 96);
+}
+
+aside h1{
+     font-weight: 700;
+     font-size: 3rem;
+     text-transform: uppercase;
+     text-align: center;
+     margin-top: 1rem;
+}
+
+.parrafo_aside{
+     text-align: center;
+     line-height: 3rem;
+     margin: 2rem auto;
+     padding: 0 1rem;
+}
+
+/* ---------------------------- Estilos del Main ---------------------------- */
+
+main{
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     align-items: center;
+     padding: 0 2rem;
+     text-align: center;
+     line-height: 3rem;
+     align-content: center;
+     background-color: rgb(0,0,0,0.7); /* es un misterio el por qué no toma el color de fondo arriba pero sí acá*/
+}
+
+.tienda{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+}
+.tienda img{
+     height: 15rem;
+     margin: 5px;
+}
+     .gifSaludo{
+          width: 100%;
+          margin: 3rem auto;
+     }
+
+/* ---------------------------- estilos del form ---------------------------- */
+ main fieldset{
+     display: flex;
+     flex-direction: column;
+     font-size: 1.4rem;
+     font-weight: 600;
+     margin: 30px auto;
+     padding: 10px;
+     /* width: 30rem; */
+     border-radius: 10px;
+}
+main fieldset legend{
+     padding: 0 5px;
+}
+
+main fieldset legend label,input{
+     padding: 5px;
+     margin: 10px 0;
+}
+
+main fieldset legend label{
+     margin: 10px 0;
+}
+
+.inputCliente{
+     display: flex;
+     justify-content: space-evenly;
+}
+.aceptoTerminos{
+     display: flex;
+     justify-content: space-around;
+}
+.ingreseNombre{
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+}
+.ingreseApellido{
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+}
+.ingreseEmail{
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+}
+
+/* ----------------------- Estilos del main Sucursales ---------------------- */
+
+figure {
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    max-width: 32rem;
+    margin: auto;
+}
+
+/* ---------------------------- Estilos del section --------------------------- */
+
+.section{
+     display: none;
+}
+
+/* --------------------------- Estilos del Footer --------------------------- */
+
+.footer{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     color: #fff;
+     font-size: 1.5rem;
+}
+
+.footer .contactanosFooter{
+     margin: 1rem 0;
+}
+/* ------------------------------ MEDIA QUERIES ----------------------------- */
+
+@media (min-width: 768px){ /*asignación de media queries para la vista de escritorio*/
+     .sectionMarcas{
+          display: inline-block;
+     }
+
+    body{
+          width: 90%;
+          margin: 0 auto;
+
+          grid-template: /* ahora se cómo poner las medidas directamete al lado de la declaración de las áreas muejejeje!!!*/
+          "header                    header"                0.2fr
+          "sidebar                   main"                  2fr
+          "section                   section"               0.5fr
+          "sectionMarcas      sectionMarcas "   auto
+          "footer                     footer"                1fr/
+           2fr                           5fr;
+     }
+/* ------------------------ modificaciones del header ----------------------- */
+     .header{
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+     }
+
+     nav ul li a:hover{
+          color: rgb(238, 236, 96);
+          text-decoration: underline rgb(238, 236, 96);
+          transition: 1s;
+     }
+/* ------------------------- modificaciones del nav ------------------------- */
+     nav ul{
+          margin-right: 1.5rem;
+     }
+/* ------------------------- modificaciones del main ------------------------ */
+
+     main, p{
+          font-size: 1.5rem;
+     }
+
+     .tienda{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+     }
+     .gifSaludo{
+          width: 50%;
+          margin: 3rem auto;
+     }
+/* ----------------------- modificaciones del section (no visible en Móvil) ----------------------- */
+     .section{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+     }
+
+/* -------------------- modificaciones del section Marcas (no visible en Móvil)------------------- */
+     .sectionMarcas{
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          padding: 2rem 0;
+     }
+
+     .footer{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+     }
+
+     /* ------------------------ modificaciones formulario ----------------------- */
+     .formulario{
+          width: 10rem;
+     }
+     main fieldset{
+           display: flex;
+          font-size: 1.5rem;
+          width: 40rem;
+          font-weight: 300;
+     }
+
+     .tarjetasSucursales{
+          display: flex;
+          flex-wrap: wrap;
+     }
+
+     .tarjetasSucursales figure img{
+          height: 180px;
+     }
+
+     
+}
